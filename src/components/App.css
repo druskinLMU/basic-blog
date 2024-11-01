@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #a8c0ff, #3f2b96); 
 }
 
 .App {
@@ -8,16 +9,17 @@ body {
   grid-template-rows: min-content auto;
   grid-template-columns: 250px auto;
   height: 100vh;
-  overflow: scroll;
+  overflow: hidden; 
 }
 
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: black;
   color: white;
   grid-column: 1 / span 2;
-  padding: 10px 5px;
+  padding: 15px 10px;
 }
 
 form {
@@ -30,34 +32,72 @@ form {
 form input,
 form textarea {
   margin-bottom: 10px;
-  width: 300px;
-}
-
-nav,
-article {
-  height: 100%;
-  padding: 10px;
+  width: 100%; 
+  max-width: 300px;
 }
 
 nav {
   background-color: #dee9ff;
+  padding: 10px;
+}
+
+nav p {
+  margin: 0;
+  padding: 8px;
+  color: #333;
+  cursor: pointer;
 }
 
 nav p:hover {
   text-decoration: underline;
-  cursor: pointer;
+  background-color: #c1d3ff;
+}
+
+article {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  padding: 15px;
+  margin-bottom: 15px;
+  background: linear-gradient(to bottom, #a8c0ff, #3f2b96); 
 }
 
 article .date {
   font-style: italic;
+  color: #666;
 }
 
 article .body {
-  white-space: break-spaces;
+  white-space: pre-wrap; 
+  line-height: 1.6;
 }
 
 .error {
   background-color: red;
   color: gold;
   padding: 5px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .App {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content auto;
+  }
+
+  nav {
+    display: none;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  form input,
+  form textarea {
+    width: 100%; 
+  }
 }
